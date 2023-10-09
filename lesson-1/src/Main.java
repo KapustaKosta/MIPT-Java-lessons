@@ -1,6 +1,7 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -36,9 +37,13 @@ public class Main {
 
   // task 3
   static int max(int... numbers) {
-    Arrays.sort(numbers);
-    int lastIndex = numbers.length - 1;
-    return numbers[lastIndex];
+    int max = Integer.MIN_VALUE;
+    for (int num : numbers) {
+      if (num > max) {
+        max = num;
+      }
+    }
+    return max;
   }
 
 
@@ -78,6 +83,10 @@ public class Main {
 
   // task 7
   static double average(int... nums) {
+    if (nums.length == 0) {
+      return 0;
+    }
+
     double res = 0d;
     for (int n : nums) {
       res += n;
@@ -181,7 +190,7 @@ public class Main {
     if (arr == null) {
       return null;
     }
-    ArrayList<Integer> res = new ArrayList<Integer>();
+    List<Integer> res = new ArrayList<Integer>();
     for (int num : arr) {
       if (num != n) {
         res.add(num);
