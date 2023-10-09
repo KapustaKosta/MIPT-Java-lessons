@@ -1,3 +1,7 @@
+package shape;
+
+import shape.Shape;
+
 public final class Ball extends Shape {
   private double radius;
 
@@ -9,14 +13,14 @@ public final class Ball extends Shape {
 
   private static double calculateVolume(double radius)
   {
-    return (double) 4/3 * Math.PI * Math.pow(radius, 3);
+    return (double) 4 / 3 * Math.PI * Math.pow(radius, 3);
   }
 
 
   @Override
   public void print()
   {
-    String toPrint = String.format("Ball radius: %f\nvolume: %f", radius, volume);
+    String toPrint = String.format("shape.Ball radius: %f\nvolume: %f", radius, volume);
     System.out.println(toPrint);
   }
 }

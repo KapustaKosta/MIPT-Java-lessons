@@ -1,3 +1,7 @@
+package shape;
+
+import shape.Shape;
+
 public final class Cylinder extends Shape {
   private double height;
   private double radius;
@@ -16,7 +20,7 @@ public final class Cylinder extends Shape {
   @Override
   public void print()
   {
-    String toPrint = String.format("Cylinder height: %f\nradius: %f\nvolume: %f", height, radius, volume);
+    String toPrint = String.format("shape.Cylinder height: %f\nradius: %f\nvolume: %f", height, radius, volume);
     System.out.println(toPrint);
   }
 }

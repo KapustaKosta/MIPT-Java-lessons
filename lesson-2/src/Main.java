@@ -1,3 +1,9 @@
+import shape.Ball;
+import shape.ColourPyramid;
+import shape.Cylinder;
+import shape.Pyramid;
+import shape.Shape;
+
 public class Main {
 
   public static void main(String[] args) {

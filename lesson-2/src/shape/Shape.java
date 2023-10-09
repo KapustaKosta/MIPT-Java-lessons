@@ -1,3 +1,5 @@
+package shape;
+
 sealed public class Shape permits Ball, Cylinder, Pyramid {
   protected double volume;
 
@@ -7,7 +9,7 @@ sealed public class Shape permits Ball, Cylinder, Pyramid {
   }
 
   public void print() {
-    System.out.println("Shape volume: " + volume);
+    System.out.println("shape.Shape volume: " + volume);
     System.out.println();
   }
 }
