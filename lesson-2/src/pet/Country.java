@@ -1,7 +1,6 @@
 package pet;
 
-public enum Country
-{
+public enum Country {
   AFGHANISTAN,
   ALBANIA,
   ALGERIA,

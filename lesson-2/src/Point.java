@@ -1,4 +1,5 @@
 public final class Point {
+
   private final double x;
   private final double y;
 
@@ -19,11 +20,11 @@ public final class Point {
     return y;
   }
 
-  public Point translate(double x, double y) {
-    return new Point(this.x + x, this.y + y);
+  public Point translate(double deltaX, double deltaY) {
+    return new Point(this.x + deltaX, this.y + deltaY);
   }
 
-  public Point scale(double x) {
-    return new Point(this.x * x, this.y * x);
+  public Point scale(double deltaX) {
+    return new Point(this.x * deltaX, this.y * deltaX);
   }
 }

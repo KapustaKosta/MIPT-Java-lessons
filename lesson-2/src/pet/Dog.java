@@ -1,6 +1,6 @@
 package pet;
 
-public class Dog extends Pet{
+public class Dog extends Pet {
 
   private Breed breed;
 
@@ -11,18 +11,15 @@ public class Dog extends Pet{
     System.out.println("bark");
   }
 
-  public void Walk()
-  {
+  public void Walk() {
     System.out.println("Dog " + this.name + " is walking with owner");
   }
 
-  public void Walk(String ownerName)
-  {
+  public void Walk(String ownerName) {
     System.out.println("Dog " + this.name + " is walking with " + ownerName);
   }
 
-  public enum Breed
-  {
+  public enum Breed {
     LABRADOR_RETRIEVER,
     GERMAN_SHEPHERD,
     GOLDEN_RETRIEVER,

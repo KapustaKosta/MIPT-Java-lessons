@@ -1,4 +1,5 @@
 public class Car {
+
   private final String model;
   private final String color;
   private int fuel;
@@ -15,13 +16,12 @@ public class Car {
     mileage = 0;
   }
 
-  public Car(Bulder bulder)
-  {
+  private Car(Bulder bulder) {
     this.model = bulder.model;
     this.color = bulder.color;
     this.fuel = bulder.fuel;
     this.maxFuel = bulder.maxFuel;
-    this.engine = bulder.engine;
+    this.engine = new Engine(bulder.fuelConsumption);
     this.mileage = bulder.mileage;
   }
 
@@ -50,8 +50,7 @@ public class Car {
   public void drive() {
     if (engine.working()) {
       double fuelConsumption = engine.getFuelConsumption();
-      while(fuel - fuelConsumption >= 0)
-      {
+      while (fuel - fuelConsumption >= 0) {
         fuel -= fuelConsumption;
         mileage += Engine.MILEAGE_IN_FUEL_CONSUMPTION;
       }
@@ -60,19 +59,19 @@ public class Car {
     }
   }
 
-  public void info()
-  {
+  public void info() {
     String output = String.format("Car model %s info:\n"
-        + "color: %s\nfuel: %d\n"
-        + "maxFuel: %d\nmileage: %d\n"
-        + "Fuel consumption: %d per %d miles\nengine working: %b", model, color,
+            + "color: %s\nfuel: %d\n"
+            + "maxFuel: %d\nmileage: %d\n"
+            + "Fuel consumption: %d per %d miles\nengine working: %b", model, color,
         fuel, maxFuel, mileage,
         engine.fuelConsumption, Engine.MILEAGE_IN_FUEL_CONSUMPTION, engine.working);
 
     System.out.println(output);
   }
 
-  private static class Engine {
+  private class Engine {
+
     private final int fuelConsumption;
 
     public static final int MILEAGE_IN_FUEL_CONSUMPTION = 100;
@@ -87,27 +86,24 @@ public class Car {
       return this.fuelConsumption;
     }
 
-    public void turnOn()
-    {
+    public void turnOn() {
       this.working = true;
     }
 
-    public void turnOff()
-    {
+    public void turnOff() {
       this.working = false;
     }
 
-    public boolean working()
-    {
+    public boolean working() {
       return this.working;
     }
   }
 
-  public static class Bulder
-  {
+  public static class Bulder {
+
     //required
     private int maxFuel;
-    private Engine engine;
+    private int fuelConsumption;
 
     //optional
     private String color;
@@ -115,38 +111,32 @@ public class Car {
     private int fuel;
     private int mileage;
 
-    public Bulder(int maxFuel, int fuelConsumption)
-    {
+    public Bulder(int maxFuel, int fuelConsumption) {
       this.maxFuel = maxFuel;
-      this.engine = new Engine(fuelConsumption);
+      this.fuelConsumption = fuelConsumption;
     }
 
-    public Bulder setColor(String color)
-    {
+    public Bulder setColor(String color) {
       this.color = color;
       return this;
     }
 
-    public Bulder setModel(String model)
-    {
+    public Bulder setModel(String model) {
       this.model = model;
       return this;
     }
 
-    public Bulder setFuel(int fuel)
-    {
+    public Bulder setFuel(int fuel) {
       this.fuel = fuel;
       return this;
     }
 
-    public Bulder setMileage(int mileage)
-    {
+    public Bulder setMileage(int mileage) {
       this.mileage = mileage;
       return this;
     }
 
-    public Car build()
-    {
+    public Car build() {
       return new Car(this);
     }
   }

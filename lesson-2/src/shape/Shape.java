@@ -1,10 +1,10 @@
 package shape;
 
-sealed public class Shape permits Ball, Cylinder, Pyramid {
+public sealed class Shape permits Ball, Cylinder, Pyramid {
+
   protected double volume;
 
-  public Shape(double volume)
-  {
+  public Shape(double volume) {
     this.volume = volume;
   }
 

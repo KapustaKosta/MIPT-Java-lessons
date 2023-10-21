@@ -1,27 +1,25 @@
 import java.util.Objects;
-import javax.lang.model.element.Name;
 
-public record Contact (String name, String email){
+public record Contact(String name, String email) {
+
   private static final String DEFAULT_EMAIL = "my-email@gmail.com";
+
   public Contact {
     Objects.requireNonNull(name);
     Objects.requireNonNull(email);
 
     boolean emailValid = true;
     emailValid &= (email.endsWith("@gmail.com"));
-    if(!emailValid)
-    {
+    if (email.endsWith("@gmail.com")) {
       email = DEFAULT_EMAIL;
     }
   }
 
-  public Contact(String name)
-  {
+  public Contact(String name) {
     this(name, DEFAULT_EMAIL);
   }
 
-  public void SayHello()
-  {
+  public void sayHello() {
     System.out.printf("Hello %s!", name);
   }
 }

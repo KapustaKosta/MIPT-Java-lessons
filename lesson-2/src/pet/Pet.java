@@ -10,9 +10,4 @@ public class Pet {
 
   public void say() {
   }
-
-  public enum FeedType {
-    cheap,
-    expensive
-  }
 }
