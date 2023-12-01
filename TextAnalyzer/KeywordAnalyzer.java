@@ -9,11 +9,7 @@ public abstract class KeywordAnalyzer implements TextAnalyzer {
     for (String word :
         prohibitedWords) {
       if (text.contains(word)) {
-        if (this instanceof SpamAnalyzer) {
-          return Label.SPAM;
-        } else if (this instanceof KeywordAnalyzer) {
-          return Label.NEGATIVE_CONTENT;
-        }
+        return Label.NEGATIVE_CONTENT;
       }
     }
     return Label.OK;
